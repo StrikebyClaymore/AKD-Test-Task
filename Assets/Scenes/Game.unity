@@ -1072,6 +1072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122068424}
   - component: {fileID: 2122068425}
+  - component: {fileID: 2122068426}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1109,6 +1110,19 @@ MonoBehaviour:
   _player: {fileID: 1254421156}
   _cameraFollow: {fileID: 756165974}
   _garage: {fileID: 32485941}
+--- !u!114 &2122068426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122068423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ea7cafc2164b6590a4837927061a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetFps: -1
 --- !u!1001 &187054469617256215
 PrefabInstance:
   m_ObjectHideFlags: 0

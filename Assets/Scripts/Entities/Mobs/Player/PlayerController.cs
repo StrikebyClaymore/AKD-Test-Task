@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public void CustomUpdate()
     {
         _interaction?.CustomUpdate();
+        _movement?.CustomUpdate();
     }
 
     public void CustomFixedUpdate()

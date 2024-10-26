@@ -21,10 +21,14 @@ public class PlayerMovement
         _rotation = Vector2.zero;
     }
 
+    public void CustomUpdate()
+    {
+        Rotation();
+    }
+    
     public void CustomFixedUpdate()
     {
         Move();
-        Rotation();
     }
     
     private void Move()
@@ -34,9 +38,10 @@ public class PlayerMovement
             _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
             return;
         }
-        var moveDirection = (_body.forward * _moveDirection.z + _body.right * _moveDirection.x).normalized;
-        var translation = moveDirection * (_config.MoveSpeed * Time.fixedDeltaTime);
-        _rb.MovePosition(_rb.position + translation);
+        var direction = (_body.forward * _moveDirection.z + _body.right * _moveDirection.x).normalized;
+        var velocity = direction * _config.MoveSpeed;
+        velocity.y = _rb.velocity.y;
+        _rb.velocity = velocity;
     }
     
     private void Rotation()
