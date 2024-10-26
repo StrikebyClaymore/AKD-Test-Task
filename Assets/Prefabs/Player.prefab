@@ -215,17 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 3881665493361832983}
   _body: {fileID: 1505636180110714475}
-  _moveSpeed: 5
-  _sensitivity: 400
-  _topClamp: -90
-  _bottomClamp: 90
-  _rotation: {x: 0, y: 0}
   _hands: {fileID: 4432139583544983066}
-  _raycastInterval: 0.2
-  _raycastDistance: 2
-  _raycastLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  _config: {fileID: 11400000, guid: dda979968c330d64aae40ea595be27e3, type: 2}
 --- !u!1 &4870086608637810830
 GameObject:
   m_ObjectHideFlags: 0
