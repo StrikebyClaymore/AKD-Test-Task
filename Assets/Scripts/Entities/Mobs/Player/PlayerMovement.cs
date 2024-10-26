@@ -8,7 +8,6 @@ public class PlayerMovement
     private readonly PlayerConfig _config;
     private Vector3 _moveDirection;
     private Vector2 _rotationDirection;
-    private Vector2 _rotation;
 
     public PlayerMovement(Rigidbody rb, Transform body, InputSystem inputSystem, CameraFollow cameraFollow, PlayerConfig config)
     {
@@ -18,7 +17,6 @@ public class PlayerMovement
         _config = config;
         inputSystem.OnMoveDirectionChanged.AddListener(MoveDirectionChanged);
         inputSystem.OnRotationDirectionChanged.AddListener(RotationDirectionChanged);
-        _rotation = Vector2.zero;
     }
 
     public void CustomUpdate()
@@ -47,13 +45,17 @@ public class PlayerMovement
     private void Rotation()
     {
         if (_rotationDirection == Vector2.zero)
+        {
+            _rb.angularVelocity = Vector3.zero;
             return;
+        }
+        var velocity = new Vector3(0, _rotationDirection.x * _config.RotationSpeed, 0);
+        _rb.angularVelocity = velocity;
         var moveVector = _rotationDirection * (_config.Sensitivity * Time.fixedDeltaTime);
-        _rotation.x -= moveVector.y;
-        _rotation.x = Mathf.Clamp(_rotation.x, _config.TopClamp, _config.BottomClamp);
-        _rotation.y += moveVector.x;
-        _body.localRotation = Quaternion.Euler(0, _rotation.y, 0);
-        _cameraFollow.SetRotation(Quaternion.Euler(_rotation.x, _rotation.y, 0));
+        var rotation = new Vector3();
+        rotation.x -= moveVector.y;
+        rotation.x = Mathf.Clamp(rotation.x, _config.TopClamp, _config.BottomClamp);
+        _cameraFollow.SetRotation(rotation);
     }
     
     private void MoveDirectionChanged(Vector2 direction)

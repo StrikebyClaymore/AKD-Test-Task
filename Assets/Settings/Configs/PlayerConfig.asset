@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   <MoveSpeed>k__BackingField: 6
+  <RotationSpeed>k__BackingField: 20
   <Sensitivity>k__BackingField: 300
   <TopClamp>k__BackingField: -90
   <BottomClamp>k__BackingField: 90
-  <RaycastInterval>k__BackingField: 0.2
+  <RaycastInterval>k__BackingField: 0.1
   <RaycastDistance>k__BackingField: 2
   <RaycastLayer>k__BackingField:
     serializedVersion: 2
